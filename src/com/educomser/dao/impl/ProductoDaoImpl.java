@@ -91,8 +91,8 @@ public class ProductoDaoImpl implements ProductoDao {
         try {
             conexion = new Conexion();
             String sql = "SELECT id, nombre, unidad_medida, precio, stock_actual, stock_minimo, fecha_vencimiento FROM producto";
+            Logger.getLogger(ProductoDaoImpl.class.getName()).log(Level.INFO, sql);
             Statement st = conexion.getConnection().createStatement();
-            Logger.getLogger(ProductoDaoImpl.class.getName()).log(Level.INFO, st.toString());
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 Producto prod = new Producto();
@@ -140,8 +140,8 @@ public class ProductoDaoImpl implements ProductoDao {
             st.close();
             rs.close();
         } catch (SQLException ex) {
-            String msg = "Error al listar: " + ex;
-            Logger.getLogger(ProductoDaoImpl.class.getName()).log(Level.SEVERE, null, msg);
+            String msg = "Error al listar";
+            Logger.getLogger(ProductoDaoImpl.class.getName()).log(Level.SEVERE, msg, ex);
         } finally {
             conexion.close();
         }

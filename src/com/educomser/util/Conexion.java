@@ -9,20 +9,21 @@ import java.util.logging.Logger;
 public class Conexion {
 
     private Connection connection;
-    private static final String DBDRIVER = "org.postgresql.Driver";
-    private static final String DBURL = "jdbc:postgresql://localhost:5432/jseproyecto";
-    private static final String DBUSER = "postgres";
-    private static final String DBPASS = "123456";
+    private static final String DRIVER = "org.postgresql.Driver";
+    private static final String DATABASE = "jseproyecto";
+    private static final String URL = "jdbc:postgresql://localhost:5432/";
+    private static final String USERNAME = "postgres";
+    private static final String PASSWORD = "123456";
 
     public Conexion() {
         try {
-            Class.forName(DBDRIVER);
-            connection = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+            Class.forName(DRIVER);
+            connection = DriverManager.getConnection(URL+DATABASE, USERNAME, PASSWORD);
         } catch (ClassNotFoundException ex) {
-            String msg="Error en el driver";
+            String msg="Error al cargar controlador de Base de Datos";
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, msg, ex);
         } catch (SQLException ex) {
-            String msg="Error en la conexion";
+            String msg="Error en la cadena de conexion para la Base de Datos";
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, msg, ex);
         }
     }

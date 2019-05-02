@@ -1,0 +1,40 @@
+
+######################
+# Maven
+######################
+target/
+
+
+######################
+# NetBeans
+######################
+# /nbproject/*
+/dist/*
+/build/*
+build.xml
+
+######################
+# IDEA
+######################
+*.iml
+*.ipr
+*.iws
+.idea/
+atlassian-ide-plugin.xml
+ 
+######################
+# Eclipse
+######################
+/WebContent/
+/bin/
+*.pydevproject
+.project
+.metadata
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
